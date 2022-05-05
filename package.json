@@ -55,5 +55,12 @@
     "webpack-cli": "^4.9.1",
     "webpack-dev-server": "^4.4.0"
   },
-  "description": "Arrow Hero"
+  "description": "Arrow Hero",
+  "dependencies": {
+    "14": "^3.1.6",
+    "16": "^0.0.2",
+    "latest": "^0.2.0",
+    "n": "^8.2.0",
+    "yarn": "^1.22.18"
+  }
 }
