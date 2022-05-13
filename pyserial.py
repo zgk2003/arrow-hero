@@ -1,7 +1,8 @@
+import pyautogui
 import serial  # from pyserial package
 import struct  # import to decode the byte strings returned form the serial read
-with serial.Serial('COM15', 115200) as ser:
-    print(ser.readline())  # This should read to the first '\n' character
+with serial.Serial('/dev/cu.usbmodemSDA4191CE7E1', 115200) as ser:
+    # print(ser.readline())  # This should read to the first '\n' character
     # If you don't see anything on the output
     # it could be because the board did not send a line
     # try pressing the reset button to resend the string
@@ -14,4 +15,10 @@ with serial.Serial('COM15', 115200) as ser:
         # NOTE: This code will throw an error if you send to fast because
         # some_bytes is too long and cant be decoded into a single 8-bit int
 
-        print(f'{some_bytes} decodes to the number: {decoded_bytes[0]}')
+        num = int(decoded_bytes[0])
+        print(num)
+        if(num == 1):
+            pyautogui.press('left')
+            print("Left Pressed")
+        else:
+            print("Did nothing")
