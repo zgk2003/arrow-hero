@@ -24,4 +24,5 @@ with serial.Serial('/dev/cu.usbmodemSDA4191CE7E1', 115200) as ser:
             pyautogui.press('right')
             print("Right Pressed")
         else:
+            print(num)
             print("Did nothing")
