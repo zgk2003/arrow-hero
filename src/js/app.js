@@ -57,91 +57,91 @@ document.addEventListener('DOMContentLoaded', () => {
 			speed: 510,
 			message: 'Just a little bit more!',
 			points: 12,
-			keys: 4,
+			keys: 3,
 		},
 		{
 			score: 500,
 			speed: 490,
 			message: 'Keep spinning the lock!',
 			points: 15,
-			keys: 4,
+			keys: 3,
 		},
 		{
 			score: 760,
 			speed: 465,
 			message: 'Concurrency!',
 			points: 17,
-			keys: 4,
+			keys: 3,
 		},
 		{
 			score: 1100,
 			speed: 440,
 			message: 'Professor Napp would be proud!',
 			points: 20,
-			keys: 4,
+			keys: 3,
 		},
 		{
 			score: 1500,
 			speed: 390,
 			message: 'Amazing!',
 			points: 22,
-			keys: 4,
+			keys: 3,
 		},
 		{
 			score: 2000,
 			speed: 360,
 			message: 'You\'re a pro!',
 			points: 25,
-			keys: 4,
+			keys: 3,
 		},
 		{
 			score: 2700,
 			speed: 330,
 			message: 'Teach me your ways!',
 			points: 27,
-			keys: 4,
+			keys: 3,
 		},
 		{
 			score: 3500,
 			speed: 310,
 			message: 'Insane!',
 			points: 30,
-			keys: 4,
+			keys: 3,
 		},
 		{
 			score: 4300,
 			speed: 290,
 			message: 'Don\'t get caught in a deadlock!',
 			points: 32,
-			keys: 4,
+			keys: 3,
 		},
 		{
 			score: 5500,
 			speed: 280,
 			message: 'Impressive!',
 			points: 35,
-			keys: 4,
+			keys: 3,
 		},
 		{
 			score: 7000,
 			speed: 270,
 			message: 'Embedded systems!',
 			points: 40,
-			keys: 4,
+			keys: 3,
 		},
 		{
 			score: 10000,
 			speed: 260,
 			message: 'Crazy good!',
 			points: 40,
-			keys: 4,
+			keys: 3,
 		},
 		{
 			score: 10500,
 			speed: 250,
 			message: 'You are number one!',
 			points: 40,
-			keys: 4,
+			keys: 3,
 		},
 	]
 	let current = speeds[0]
@@ -155,7 +155,7 @@ document.addEventListener('DOMContentLoaded', () => {
 
 	// initialize helpers
 	const bottom = document.querySelector('.bottom')
-	const bottomKeys = [ 'left', 'up', 'right', 'down' ]
+	const bottomKeys = [ 'left', 'up', 'right' ]
 	bottomKeys.forEach(k =>
 		bottom.querySelector('.key-' + k).appendChild(keyDomItem.childNodes[0].cloneNode(true)))
 
@@ -220,7 +220,7 @@ document.addEventListener('DOMContentLoaded', () => {
 		if (gameState === 'end' || gameState === 'paused' || gameState === 'restart')
 			return
 
-		const arr = [ 'key-right', 'key-left', 'key-down', 'key-up' ]
+		const arr = [ 'key-right', 'key-left', 'key-up' ]
 		const direction = arr[Math.floor(Math.random() * current.keys)]
 		let nextKey = container.querySelector('.idle')
 		if (nextKey === null) {
@@ -262,7 +262,7 @@ document.addEventListener('DOMContentLoaded', () => {
 					endGame()
 
 				nextKey.classList.add('idle')
-				nextKey.classList.remove('key-up', 'key-down', 'key-left', 'key-right')
+				nextKey.classList.remove('key-up', 'key-left', 'key-right')
 			}
 			container.appendChild(nextKey)
 		} else {
@@ -354,7 +354,7 @@ document.addEventListener('DOMContentLoaded', () => {
 		keypressed = ''
 
 		container.querySelectorAll('.key').forEach(key => {
-			key.classList.remove('key-up', 'key-down', 'key-left', 'key-right', 'hide')
+			key.classList.remove('key-up', 'key-left', 'key-right', 'hide')
 			key.classList.add('idle')
 		})
 
@@ -446,10 +446,10 @@ document.addEventListener('DOMContentLoaded', () => {
 					keypressed = 'key-right'
 					break
 
-				case 40: // down
-				case 74: // j
-					keypressed = 'key-down'
-					break
+				// case 40: // down
+				// case 74: // j
+				// 	keypressed = 'key-down'
+				// 	break
 			}
 			square.classList.add('s-' + keypressed)
 		}
@@ -487,7 +487,7 @@ document.addEventListener('DOMContentLoaded', () => {
 	addMobileListener('.key-left', 37)
 	addMobileListener('.key-up', 38)
 	addMobileListener('.key-right', 39)
-	addMobileListener('.key-down', 40)
+	// addMobileListener('.key-down', 40)
 
 	addMultipleEventListener(mobileControls.querySelector('.pause-btn'), [ 'click', 'touchstart' ], e => {
 		e.preventDefault()
