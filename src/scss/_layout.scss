@@ -7,7 +7,9 @@ body {
   border-top: 1px solid $right_color;
   margin: 0;
 
-  h1, h2, h3 {
+  h1,
+  h2,
+  h3 {
     font-weight: bold;
   }
 
@@ -246,6 +248,7 @@ body {
 
     &.key-up {
       color: $up_color;
+
       svg {
         transform: scale($scale_adjustment);
       }
