@@ -26,7 +26,7 @@ with serial.Serial('COM3', 115200) as ser:
         elif(num == 3):
             pyautogui.press('up')
             print("Up pressed")
-        elif(num >= 40):
+        elif(num >= 90):
             pyautogui.press('space')
             print("Space pressed")
             print(num)
